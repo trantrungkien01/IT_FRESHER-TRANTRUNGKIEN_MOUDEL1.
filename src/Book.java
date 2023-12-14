@@ -78,7 +78,7 @@ public class Book implements IEntily, Serializable {
         this.categoryId = inputCategoryId(scanner, Library.listCategory);
     }
     public String inputId(List<Book> bookList, Scanner scanner) {
-        System.out.println("Nhập mã sách: ");
+        System.out.println("Nhập mã sách 'B': ");
         do {
             this.id = lenghthString(3, 4, scanner);
             if (this.id.charAt(0) == 'B') {
@@ -120,11 +120,9 @@ public class Book implements IEntily, Serializable {
     }
 
     public String inputAuthor(Scanner scanner) {
-
         do {
             System.out.println("Nhập tên tác giả: ");
             String authorBook = scanner.nextLine();
-
             if (authorBook.trim().isEmpty()) {
                 System.err.println("Tên tác giả không được bỏ trống, vui lòng nhập lại!");
             }else {

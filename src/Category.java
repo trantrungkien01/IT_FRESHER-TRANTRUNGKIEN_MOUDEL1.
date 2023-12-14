@@ -43,13 +43,14 @@ public class Category implements IEntily, Serializable {
 
     @Override
     public void input(Scanner scanner) {
+
         this.id = inputId(Library.listCategory, scanner);
         this.name = inputCategoryName(Library.listCategory, scanner);
         this.status = inputStatus(scanner);
     }
 
     public int inputId(List<Category> categoryList, Scanner scanner) {
-        System.out.println("Nhập mã thể loại:");
+        System.out.println("Nhập mã thể loại<số nguyên>:");
         do {
             int categoryId = validate(scanner, 0);
             boolean isDuplication = false;
@@ -67,7 +68,7 @@ public class Category implements IEntily, Serializable {
         } while (true);
     }
     public boolean inputStatus(Scanner scanner){
-        System.out.println("Nhập trạng thái: ");
+        System.out.println("Nhập trạng thái thể loại<true or false>: ");
         do {
             String statusCategory = scanner.nextLine();
             if (statusCategory.equals("true") || statusCategory.equals("false")){
@@ -77,7 +78,7 @@ public class Category implements IEntily, Serializable {
     }
 
     public String inputCategoryName(List<Category> categoryList, Scanner scanner) {
-        System.out.println("Nhập tên thể loại: ");
+        System.out.println("Nhập tên thể loại<6-30kt>: ");
         do {
             String cateBookName = lenghthString(6, 30, scanner);
             boolean isDuplication = false;
@@ -98,11 +99,12 @@ public class Category implements IEntily, Serializable {
     public int validate(Scanner scanner, int i) {
         do {
             try {
+
                 int number = Integer.parseInt(scanner.nextLine());
                 if (number > i) {
                     return number;
                 } else {
-                    System.err.println("Só nguyên lớn hơn 0, vui lòng nhập lại");
+                    System.err.println("Số nguyên lớn hơn 0, vui lòng nhập lại");
                 }
             } catch (NumberFormatException nfe) {
                 System.err.println("Vui lòng nhập số nguyên");
